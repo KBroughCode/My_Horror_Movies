@@ -31,3 +31,75 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  display: flex;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}
+.eyeImg{
+  background-image: url("http://sfwallpaper.com/images/creepy-forest-background-5.jpg");
+  z-index: 1;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+h1{
+color: orange;
+}
+
+h1 span {
+  color: white;
+}
+
+.card-display{
+  text-align: center;
+}
+
+.movieCardContainer{
+  z-index: 1;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: auto 1fr;
+  opacity: 0.8;
+  border-radius: 25;
+  /* border-color: white; */
+  border-style: solid;
+  background-color: black;
+}
+
+.movie-rating{
+  color: orange;
+  text-align: center;
+}
+
+.movie-overview{
+  color: white;
+}
+
+.movie-recommends-header{
+  color: orange;
+}
+
+.movie-recommends{
+  color: white;
+}
+
+.myList{
+  color: orange;
+  text-align: right;
+}
+
+.Nav{
+  grid-template-columns: 1fr 1fr;
+}
+
+.ui-orange-basic-button{
+  margin-left: 25%;
+}

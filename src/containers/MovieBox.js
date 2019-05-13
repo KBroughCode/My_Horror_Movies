@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieList from '../components/MovieList';
 import Movie from '../components/Movie';
+/*import MovieCards from '../components/MovieCards';*/
 
 class MovieBox extends Component{
   constructor(props){
@@ -9,6 +10,9 @@ class MovieBox extends Component{
       horrorMovieData: [],
       selectedIndex: null
     }
+
+    this.handleSelectedMovie = this.handleSelectedMovie.bind(this)
+
   }
 
   handleSelectedMovie(index){
@@ -16,16 +20,18 @@ class MovieBox extends Component{
   }
 
   componentDidMount(){
-    fetch("https://api.themoviedb.org/3/discover/movie?api_key=7d3e845db540f98644e7c1372630e825&with_genres=27")
+    fetch("https://api.themoviedb.org/3/discover/movie?api_key=7d3e845db540f98644e7c1372630e825&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=true&page=1&with_genres=27")
     .then(res => res.json())
     .then(data => {
       this.setState({horrorMovieData: data.results})
     })
   }
 
+
+
   createMovie(){
     if (this.state.selectedIndex){
-      return <Movie movie ={this.state.horrorMovieData[this.state.selectIndex]} />
+      return <Movie movie ={this.state.horrorMovieData[this.state.selectedIndex]} className = "card"/>
     } else {
       return <h3>Select a Movie</h3>
     }
@@ -35,8 +41,8 @@ class MovieBox extends Component{
     console.log(this.state.horrorMovieData);
     return (
       <>
-      <h2>Boo!</h2>
       <MovieList
+      className = "list"
         horrorMovieData = {this.state.horrorMovieData}
         handleSelectedMovie = {this.handleSelectedMovie}
         />

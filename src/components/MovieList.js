@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Movie from '../components/Movie';
 
-class MovieList extends Component{
+class MovieList extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -12,7 +11,7 @@ class MovieList extends Component{
   }
 
   handleChange(event){
-    this.setState({selectIndex: event.target.value})
+    this.setState({selectedIndex: event.target.value})
     this.props.handleSelectedMovie(event.target.value)
   }
 
@@ -24,12 +23,14 @@ class MovieList extends Component{
 
 
   render(){
+    console.log(this.state.selectedIndex);
     return(
       <>
+        <div className = "fields">
         <select value = {this.state.selectedIndex} onChange = {this.handleChange}>
         {this.createList()}
         </select>
-        <Movie />
+        </div>
       </>
     )
   }
